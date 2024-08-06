@@ -1,10 +1,10 @@
 import logging
 import unittest
 
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log", encoding="utf-8",
                         format="%(asctime)s | %(levelname)s | %(message)s")
-
 
 class Runner:
     def __init__(self, name, speed=5):
@@ -58,8 +58,8 @@ class Tournament:
 
 # first = Runner('Вося', 10)
 # second = Runner('Илья', 5)
-# third = Runner('Арсен', 10)
-# t = Tournament(101, first, second, third)
+# # third = Runner('Арсен', 10)
+# t = Tournament(101, first, second)
 # print(t.start())
 
 
@@ -71,7 +71,7 @@ class RunnerTest(unittest.TestCase):
             walker.walk()
             self.assertEqual(walker.distance, 5)
             logging.info('"test_walk" выполнен успешно', exc_info=True)
-        except:
+        except ValueError:
             logging.warning("Неверная скорость для Runner", exc_info=True)
 
     def test_run(self):
@@ -80,5 +80,5 @@ class RunnerTest(unittest.TestCase):
             runern.run()
             self.assertEqual(runern.distance, 20)
             logging.info('"test_run" выполнен успешно', exc_info=True)
-        except:
+        except TypeError:
             logging.warning("Неверный тип данных для объекта Runner", exc_info=True)
