@@ -2,8 +2,7 @@ import logging
 import unittest
 
 
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log", encoding="utf-8",
+logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log", encoding="utf-8",
                         format="%(asctime)s | %(levelname)s | %(message)s")
 
 class Runner:
@@ -82,3 +81,7 @@ class RunnerTest(unittest.TestCase):
             logging.info('"test_run" выполнен успешно', exc_info=True)
         except TypeError:
             logging.warning("Неверный тип данных для объекта Runner", exc_info=True)
+
+if __name__ == "__main__":
+    print(RunnerTest.test_walk())
+    print(RunnerTest.test_run())
